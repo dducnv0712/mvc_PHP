@@ -33,11 +33,11 @@
             <td><a   href="#"><?php echo $item['category_id']?></a></td>
             <td>
                 <div class="btn-group  btn-group-sm" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-secondary text-dark shadow-none  rounded-pill rounded-end button  tableButton" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
-                    <button type="button" class="btn btn-secondary text-dark shadow-none rounded-pill rounded-start button tableButton" data-bs-toggle="modal" data-bs-target="#updateModal">Update</button>
-
+                    <button type="button" class="btn btn-secondary text-dark shadow-none  rounded-pill rounded-end button  tableButton" data-bs-toggle="modal" data-bs-target="#deleteModal<?php echo $item["category_id"]?>">Delete</button>
+                    <button type="button" class="btn btn-secondary text-dark shadow-none rounded-pill rounded-start button tableButton" data-bs-toggle="modal" data-bs-target="#updateModal<?php echo $item["category_id"]?>">Update</button>
+                </div>
                     <!-- Cập Nhật Thể Loại Sản Phẩm -->
-                    <div class="modal fade" id="updateModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                    <div class="modal fade" id="updateModal<?php echo $item["category_id"]?>" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
                         <div class="modal-dialog modal-dialog-centered rounded-3 overflow-hidden">
                             <div class="modal-content rounded-3 overflow-hidden">
                                 <div style="  background-image: linear-gradient(#fff, #ccc);" class="modal-header">
@@ -61,7 +61,7 @@
                         </div>
                     </div>
                     <!-- Xóa Thể Loại Sản Phẩm -->
-                    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="deleteModal<?php echo $item["category_id"]?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -80,7 +80,7 @@
                         </div>
                     </div>
 
-                </div>
+
             </td>
         </tr>
         <?php }?>
