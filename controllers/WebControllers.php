@@ -4,6 +4,7 @@ class WebControllers{
     public function Home(){
 
     }
+
     public function listCategory(){
         $sql_txt = "select * from category";
         $list_category = queryDB($sql_txt);
