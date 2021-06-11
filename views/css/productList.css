@@ -1,0 +1,46 @@
+
+.header-table{
+    background-image: linear-gradient(#fff, #ccc);
+}
+.tableButton{
+    border-color: #aaa;
+    text-shadow: 0 1px 0 #fff;
+    outline: none;
+    background-image: linear-gradient(#f8f8f8, #d8d8d8);
+    box-shadow: none;
+}
+.deleteButton{
+    border-color: #aaa;
+    text-shadow: 0 1px 0 #fff;
+    outline: none;
+    background-image: linear-gradient(#dc6e6e, #934f4f);
+    box-shadow: none;
+}
+.tableButton:focus{
+    color: #212529;
+    background: #cacaca linear-gradient(180deg, #d2d2d2, #cacaca) repeat-x;
+    box-shadow: none;
+}
+button{
+    box-shadow: none;
+}
+.tableButton:hover{
+    background-image: linear-gradient(#fff, #ddd);
+}
+.tr-table:hover{
+    background: linear-gradient(#ced6df, #b6c6d7);
+}
+a{
+    width:100%;
+    height:100%;
+    color: #235a81;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: solid #235a81 ;
+    text-decoration-line: revert;
+
+}
+.modal-header{
+    background-image: linear-gradient(#fff, #ccc);
+}

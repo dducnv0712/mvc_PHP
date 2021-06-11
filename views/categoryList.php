@@ -29,8 +29,8 @@
             <th  scope="row">
                 <?php  echo $num++ ;?>
             </th>
-            <td><a   href="#"><?php echo $item['category_name']?></a></td>
-            <td><a   href="#"><?php echo $item['category_id']?></a></td>
+            <td><a   href="?route=Select-Product&category_ID=<?php echo $item['category_id']?>"><?php echo $item['category_name']?></a></td>
+            <td><a   href="?route=Select-Product&category_ID=<?php echo $item['category_id']?>"> <?php echo $item['category_id']?></a></td>
             <td>
                 <div class="btn-group  btn-group-sm" role="group" aria-label="Basic example">
                     <button type="button" class="btn btn-secondary text-dark shadow-none  rounded-pill rounded-end button  tableButton" data-bs-toggle="modal" data-bs-target="#deleteModal<?php echo $item["category_id"]?>">Delete</button>
@@ -41,7 +41,7 @@
                         <div class="modal-dialog modal-dialog-centered rounded-3 overflow-hidden">
                             <div class="modal-content rounded-3 overflow-hidden">
                                 <div style="  background-image: linear-gradient(#fff, #ccc);" class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalToggleLabel">Update Category </h5>
+                                    <h5 class="modal-title fw-bold" id="exampleModalToggleLabel">Update Category </h5>
                                     <button type="button" style="box-shadow: none" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <form action="?route=Update-Category" method="post">
@@ -65,7 +65,7 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Delete Category</h5>
+                                    <h5 class="modal-title fw-bold" id="exampleModalLabel">Delete Category</h5>
                                     <button type="button" class="shadow-none btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
@@ -88,7 +88,7 @@
             <th class="table-sm"> </th>
             <td class="table-sm"></td>
             <td class="table-sm"></td>
-            <td class="table-sm">  <button type="button" class="btn  btn-secondary text-dark rounded-pill fw-bold  button tableButton" data-bs-toggle="modal" data-bs-target="#insertTable">Insert Table</button></td>
+            <td class="table-sm">  <button type="button" class="btn  btn-secondary text-dark rounded-pill fw-bold  button tableButton" data-bs-toggle="modal" data-bs-target="#insertTable">Insert Category</button></td>
         </tr>
         </tbody>
     </table>
@@ -97,7 +97,7 @@
         <div class="modal-dialog modal-dialog-centered rounded-3 overflow-hidden">
             <div class="modal-content rounded-3 overflow-hidden">
                 <div style="  background-image: linear-gradient(#fff, #ccc);" class="modal-header">
-                    <h5 class="modal-title" id="exampleModalToggleLabel">Insert Category</h5>
+                    <h5 class="modal-title fw-bold" id="exampleModalToggleLabel">Insert Category</h5>
                     <button type="button" style="box-shadow: none" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="?route=Insert-Category" method="post">
