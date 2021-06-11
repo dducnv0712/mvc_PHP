@@ -19,7 +19,7 @@
             <th class="border-top border-bottom-0" scope="col">Noun</th>
             <th class="border-top border-bottom-0" scope="col">Category</th>
             <th class="border-top border-bottom-0"  scope="col">Category ID</th>
-            <th class="border-top border-bottom-0"  scope="col">Activity</th>
+            <th class="border-top border-bottom-0"  scope="col">Functions</th>
         </tr>
         </thead>
         <tbody>
