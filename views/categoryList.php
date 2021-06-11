@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="container text-center">
-    <h2 class="text-center mt-5">Danh Sách Thể Loại Sản Phẩm</h2>
+    <h2 class="text-center fw-bold mt-5">Category List</h2>
     <table class="table mt-3  rounded-3 overflow-hidden">
         <thead class="header-table ">
         <tr >
