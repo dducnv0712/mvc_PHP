@@ -29,8 +29,8 @@
             <th  scope="row">
                 <?php  echo $num++ ;?>
             </th>
-            <td><a   href="?route=Select-Product&category_ID=<?php echo $item['category_id']?>"><?php echo $item['category_name']?></a></td>
-            <td><a   href="?route=Select-Product&category_ID=<?php echo $item['category_id']?>"> <?php echo $item['category_id']?></a></td>
+            <td><a   title="Products of <?php echo $item['category_name']?>" href="?route=Select-Product&category_ID=<?php echo $item['category_id']?>"><?php echo $item['category_name']?></a></td>
+            <td><a   title="Products of <?php echo $item['category_name']?>" href="?route=Select-Product&category_ID=<?php echo $item['category_id']?>"> <?php echo $item['category_id']?></a></td>
             <td>
                 <div class="btn-group  btn-group-sm" role="group" aria-label="Basic example">
                     <button type="button" class="btn btn-secondary text-dark shadow-none  rounded-pill rounded-end button  tableButton" data-bs-toggle="modal" data-bs-target="#deleteModal<?php echo $item["category_id"]?>">Delete</button>

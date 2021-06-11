@@ -21,8 +21,8 @@
             <th class="border-top border-bottom-0" scope="col">Noun</th>
             <th class="border-top border-bottom-0" scope="col">Products ID</th>
             <th class="border-top border-bottom-0"  scope="col">Products Name</th>
-            <th class="border-top border-bottom-0"  scope="col">Product Category</th>
-            <th class="border-top border-bottom-0"  scope="col">Product Price</th>
+            <th class="border-top border-bottom-0"  scope="col">Products Category</th>
+            <th class="border-top border-bottom-0"  scope="col">Products Price</th>
             <th class="border-top border-bottom-0"  scope="col">Category ID</th>
             <th class="border-top border-bottom-0"  scope="col">Functions</th>
         </tr>
@@ -34,11 +34,12 @@
                 <th  scope="row">
                     <?php  echo $num++ ;?>
                 </th>
-                <td><a   href="#"><?php echo $item['product_id']?></a></td>
-                <td><a   href="#"><?php echo $item['product_name']?></a></td>
-                <td><a   href="#"><?php echo $item['product_category']?></a></td>
-                <td><a   href="#"><?php echo number_format($item["product_price"],0,",",'.')." VNĐ"?></a></td>
-                <td><a   href="#"><?php echo $item['category_id']?></a></td>
+
+                <td><a title="Product Details" href="#"><?php echo $item['product_id']?></a></td>
+                <td><a title="Product Details" href="#"><?php echo $item['product_name']?></a></td>
+                <td><?php echo $item['product_category']?></td>
+                <td><?php echo number_format($item["product_price"],0,",",'.')." VNĐ"?></td>
+                <td><?php echo $item['category_id']?></td>
 
                 <td>
                     <div class="btn-group  btn-group-sm" role="group" aria-label="Basic example">
