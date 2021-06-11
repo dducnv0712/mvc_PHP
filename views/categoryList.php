@@ -53,7 +53,7 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer bg-light">
-                                        <button type="submit" class="btn btn-secondary text-dark rounded-pill    button tableButton">Insert</button>
+                                        <button type="submit" class="btn btn-secondary text-dark rounded-pill    button tableButton">Update</button>
                                     </div>
                                 </form>
 

@@ -6,7 +6,7 @@ class WebControllers{
     }
 
 
-    //category List
+    //List Category
     public function listCategory(){
         $sql_txt = "select * from category";
         $list_category = queryDB($sql_txt);
@@ -52,6 +52,8 @@ class WebControllers{
     }
     //ket thuc list category
 
+
+    //List Product
     public function listProduct(){
         $sql_txt = "select * from products";
         $sql_txt2 = "select * from category";
@@ -62,6 +64,7 @@ class WebControllers{
     }
     public function insertProduct()
     {
+
         $name_Product = $_POST['name_Product'];
         $price_Product = $_POST['price_Product'];
         $name_Category = $_POST['name_Category'];
@@ -71,6 +74,30 @@ class WebControllers{
             header("location:?route=Product-List");
         } else {
             echo "<script>alert('Thêm thất bại')</script>";
+        }
+
+    }
+    public function deleteProduct(){
+        $id_update = $_GET['delProduct'];
+        $sql_txt = "DELETE FROM `products` WHERE `product_id` = $id_update";
+        if (updateDB($sql_txt)) {
+            header("location:?route=Product-List");
+        } else {
+            echo "<script>alert('Update False')</script>";
+        }
+
+    }
+    public function updateProduct(){
+        $id_Product = $_POST['idProduct'];
+        $nameProduct = $_POST['nameProduct'];
+        $priceProduct = $_POST['priceProduct'];
+        $name_Category = $_POST['nameCategory'];
+        $id_Category = $_POST['idCategory'];
+        $sql_txt = "UPDATE `products` SET `product_name`='$nameProduct',`product_price`= $priceProduct ,`product_category`='$name_Category',`category_id`='$id_Category' WHERE `product_id`= $id_Product";
+        if (updateDB($sql_txt)) {
+            header("location:?route=Product-List");
+        } else {
+            echo "<script>alert('Cập Nhật thất bại')</script>";
         }
 
     }

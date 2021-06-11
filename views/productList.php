@@ -11,9 +11,11 @@
 
 </head>
 <body>
-<div class="container text-center">
-    <h2 class="text-center mt-5">Danh Sách Thể Loại Sản Phẩm</h2>
-    <table class="table mt-3  rounded-3" >
+
+<div class="container ">
+    <button onclick="window.location.href='?route=Category-List'" class="btn mt-4 shadow-none  btn-secondary"><< Back</button>
+    <h2 class="text-center fw-bold mt-5">Products List</h2>
+    <table class="table mt-3 text-center rounded-3" >
         <thead class="header-table ">
         <tr >
             <th class="border-top border-bottom-0" scope="col">Noun</th>
@@ -35,7 +37,7 @@
                 <td><a   href="#"><?php echo $item['product_id']?></a></td>
                 <td><a   href="#"><?php echo $item['product_name']?></a></td>
                 <td><a   href="#"><?php echo $item['product_category']?></a></td>
-                <td><a   href="#"><?php echo $item['product_price']?></a></td>
+                <td><a   href="#"><?php echo number_format($item["product_price"],0,",",'.')." VNĐ"?></a></td>
                 <td><a   href="#"><?php echo $item['category_id']?></a></td>
 
                 <td>
@@ -53,38 +55,37 @@
                                     <h5 class="modal-title fw-bold" id="exampleModalToggleLabel">Update Category </h5>
                                     <button type="button" style="box-shadow: none" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                                <form action="?route=Update-Category" method="post">
+                                <form action="?route=Update-Product" method="post">
                                     <div class="modal-body text-lg-start">
                                         <div class="mb-3">
-                                            <label for="nameCategory" class="form-label fw-bold">Name Product</label>
-                                            <input  value="<?php echo $item['product_id']?>" type="hidden" name="update_Category" class="form-control rounded-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                                            <input id="nameCategory" value="<?php echo $item['product_name']?>" type="text" name="name_Category" class="form-control rounded-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                            <input value="<?php echo $item["product_id"]?>"  type="hidden"  id="nameProduct" name="idProduct">
+                                            <label for="nameProduct" class="form-label fw-bold">Name Product</label>
+                                            <input value="<?php echo $item["product_name"]?>" id="nameProduct" type="text" name="nameProduct" class="form-control rounded-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="nameCategory" class="form-label fw-bold">Price Product</label>
-                                            <input  value="<?php echo $item['product_id']?>" type="hidden" name="update_Category" class="form-control rounded-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                                            <input id="nameCategory" value="<?php echo $item['product_name']?>" type="text" name="name_Category" class="form-control rounded-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                            <label for="priceProduct" class="form-label fw-bold">Price Product</label>
+                                            <input value="<?php echo $item["product_price"]?>" id="priceProduct" type="text" name="priceProduct" class="form-control rounded-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                         </div>
-                                        <label for="nameCategory" class="form-label fw-bold">Name Category</label>
-                                        <select id="nameCategory" class="form-select" aria-label="Default select example">
-                                            <?php
-                                            include_once "../../mvc_PHP/controllers/Database_cn.php";
-                                            $sql_txt = "select * from category";
-                                            $list_category = queryDB($sql_txt);
-                                            ?>
-                                            <?php foreach ($list_category as $item_category){?>
-                                                <option value="<?php echo $item_category['category_name']."-".$item_category['category_id'] ?>" ><?php echo $item_category['category_name']."-".$item_category['category_id'] ?></option>
-                                            <?php } ?>
-                                        </select>
-                                        <label for="nameCategory" class="form-label fw-bold">ID Category</label>
-                                        <select id="nameCategory" class="form-select" aria-label="Default select example">
-                                            <?php foreach ($list_category as $item_category){?>
-                                                <option value="<?php echo $item_category['category_name']."-".$item_category['category_id'] ?>" ><?php echo $item_category['category_id'] ."-". $item_category['category_name'] ?></option>
-                                            <?php } ?>
-                                        </select>
+                                        <div class="mb-3">
+                                            <label for="nameCategory" class="form-label fw-bold">Name Category</label>
+                                            <select  id="nameCategory" name="nameCategory" class="form-select" aria-label="Default select example">
+
+                                                <?php foreach ($list_category as $item_category){?>
+                                                    <option value="<?php echo $item_category['category_name'] ?>" ><?php echo $item_category['category_name']."-".$item_category['category_id'] ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="idCategory"  class="form-label fw-bold">ID Category</label>
+                                            <select id="idCategory"  name="idCategory" class="form-select" aria-label="Default select example">
+                                                <?php foreach ($list_category as $item_category){?>
+                                                    <option value="<?php echo $item_category['category_id'] ?>" ><?php echo  $item_category['category_id']."-".$item_category['category_name'] ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
                                     </div>
                                     <div class="modal-footer bg-light">
-                                        <button type="submit" class="btn btn-secondary text-dark rounded-pill    button tableButton">Insert</button>
+                                        <button type="submit" class="btn btn-secondary text-dark rounded-pill    button tableButton">Update</button>
                                     </div>
                                 </form>
 
@@ -107,7 +108,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn shadow-none  btn-secondary text-dark rounded-pill  button tableButton" data-bs-dismiss="modal">Close</button>
-                                    <button onclick="window.location.href='?route=Delete-Category&delCategory=<?php echo $item['product_id']?>'"  class="btn shadow-none btn-danger text-light rounded-pill  button deleteButton">Delete</button>
+                                    <button onclick="window.location.href='?route=Delete-Product&delProduct=<?php echo $item['product_id']?>'"  class="btn shadow-none btn-danger text-light rounded-pill  button deleteButton">Delete</button>
                                 </div>
                             </div>
                         </div>
@@ -152,11 +153,11 @@
                     <div class="modal-body text-lg-start">
                         <div class="mb-3">
                             <label for="nameProduct" class="form-label fw-bold">Name Product</label>
-                            <input id="nameProduct" type="text" name="name_Product" class="form-control rounded-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                            <input id="nameProduct" type="text" name="name_Product" class="form-control rounded-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                         </div>
                         <div class="mb-3">
                             <label for="priceProduct" class="form-label fw-bold">Price Product</label>
-                            <input id="priceProduct" type="text" name="price_Product" class="form-control rounded-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                            <input id="priceProduct" type="text" name="price_Product" class="form-control rounded-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                         </div>
                         <div class="mb-3">
                         <label for="nameCategory" class="form-label fw-bold">Name Category</label>
