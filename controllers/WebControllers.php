@@ -6,7 +6,7 @@ class WebControllers{
     }
 
 
-    //category List
+    //List Category
     public function listCategory(){
         $sql_txt = "select * from category";
         $list_category = queryDB($sql_txt);
@@ -51,6 +51,9 @@ class WebControllers{
         include "views/productList.php";
     }
     //ket thuc list category
+    
+    
+    //List Product
 
     public function listProduct(){
         $sql_txt = "select * from products";
