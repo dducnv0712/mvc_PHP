@@ -15,6 +15,11 @@ switch ($route){
     case "Insert-Product":$controller->insertProduct();break;
     case "Delete-Product":$controller->deleteProduct();break;
     case "Update-Product":$controller->updateProduct();break;
+    case "Product-Details":$controller->productDetails();break;
+    //cart product
+    case "Cart-Product":$controller->cartProduct();break;
+    case "Cart-List":$controller->cartList();break;
+
 
 
 

@@ -104,5 +104,50 @@ class WebControllers{
         }
 
     }
+    public function productDetails(){
+        $details_ID = $_GET['details_ID'];
+        $sql_txt = "select * from products where `product_id`= $details_ID ";
+        $product_Details = productDB($sql_txt);
+        include "views/productDetails.php";
+
+    }
+    //Chức Năng Giỏ Hàng (cart products)
+
+
+
+    public function cartProduct(){
+        session_start();
+        $id = $_POST["cart_id"];
+
+        $sql_txt = "select * from `products` where `product_id` = $id";
+        $list = queryDB($sql_txt);// ds se chi co toi da 1 row
+        if(count($list)==0) header("Location: ?route=Product-List"); // redirect ve list neu ko tim thay sv
+        $product = $list[0];// tim sv can them
+        $cart_List = [];
+
+        if($_SESSION["Cart_List"]) $cart_List =  $_SESSION["Cart_List"];// kiem tra xem da co sv nao trong ds cũ chưa
+
+            $cart_List[] = $product; // thêm sinh viên vừa được chọn theo ID ở trên vào danh sách
+            $_SESSION["Cart_List"] = $cart_List;// nap ds vao session // nạp lại danh sách mới vào session
+            header("Location: ?route=Cart-List");
+
+
+
+
+    }
+    public function cartList(){
+        session_start();
+        $cart_List = [];
+        if(isset($_SESSION["Cart_List"])){
+        $cart_List =  $_SESSION["Cart_List"];
+        }  //lấy từ session danh sách đã thêm từ trang khác
+        $count = 0;
+        if(isset($_SESSION["Cart_List"])){
+            $count= count($_SESSION['Cart_List']);
+        }
+        include "views/cartProducts.php";
+    }
+
+
 
 }

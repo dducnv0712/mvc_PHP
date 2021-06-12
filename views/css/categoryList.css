@@ -27,6 +27,7 @@ button{
 .tableButton:hover{
     background-image: linear-gradient(#fff, #ddd);
 }
+
 .tr-table:hover{
     background: linear-gradient(#ced6df, #b6c6d7);
 }

@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Category List</title>
+    <title>Products List</title>
     <link rel="stylesheet" href="../../mvc_PHP/views/libs/bootstrap-5.0.1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../mvc_PHP/views/css/productList.css">
 
@@ -35,8 +35,8 @@
                     <?php  echo $num++ ;?>
                 </th>
 
-                <td><a title="Product Details" href="#"><?php echo $item['product_id']?></a></td>
-                <td><a title="Product Details" href="#"><?php echo $item['product_name']?></a></td>
+                <td><a title="Product Details" href="?route=Product-Details&details_ID=<?php echo $item['product_id']?>"><?php echo $item['product_id']?></a></td>
+                <td><a title="Product Details" href="?route=Product-Details&details_ID=<?php echo $item['product_id']?>"><?php echo $item['product_name']?></a></td>
                 <td><?php echo $item['product_category']?></td>
                 <td><?php echo number_format($item["product_price"],0,",",'.')." VNĐ"?></td>
                 <td><?php echo $item['category_id']?></td>
@@ -119,6 +119,7 @@
                 </td>
             </tr>
         <?php }?>
+
         <tr class="bg-light table-responsive-lg" >
             <th class="table-sm">
                 <div class="dropdown">
@@ -127,12 +128,14 @@
                     </a>
 
                     <ul class="dropdown-menu position-absolute " style="z-index: 99" aria-labelledby="categorySelect">
+                        <li class="dropdown-item"><a  href="?route=Product-List">All Product</a></li>
                         <?php foreach ($list_category as $item_category){?>
                             <li class="dropdown-item"><a  href="?route=Select-Product&category_ID=<?php echo $item_category['category_id'] ?>"><?php echo $item_category['category_name'] ?></a></li>
                         <?php } ?>
                     </ul>
                 </div>
             </th>
+
             <th class="table-sm"> </th>
             <th class="table-sm"> </th>
             <th class="table-sm"> </th>
