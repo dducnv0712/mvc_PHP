@@ -16,7 +16,7 @@
     <table class="table mt-3  rounded-3 overflow-hidden">
         <thead class="header-table ">
         <tr >
-            <th class="border-top border-bottom-0" scope="col">Noun</th>
+            <th class="border-top border-bottom-0" scope="col"> Numb</th>
             <th class="border-top border-bottom-0" scope="col">Category</th>
             <th class="border-top border-bottom-0"  scope="col">Category ID</th>
             <th class="border-top border-bottom-0"  scope="col">Functions</th>
